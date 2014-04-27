@@ -9,10 +9,13 @@ After downloading the source, your directory structure should contain src and ex
 Compile and install Krixoid:
 
 compile the library as follows
+
 $cd src
+
 $make
 
 After it gets compiled successfully, you can install as follows. 
+
 $sudo make install
 
 The example folder contains directory containing sample codes with makefiles. 
