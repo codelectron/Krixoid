@@ -45,45 +45,45 @@ class Serial
 {
 public:
     // Constructor of the class
-    Serial    ();
+    Serial();
 
     // Destructor
-    ~Serial   ();
+    ~Serial();
 
 
-    char    Open        (const char *Device,const unsigned int Bauds);
+    int Open(const char *Device,const unsigned int Bauds);
     void    Close();
 
     // Write a char
-    char    WriteChar   (char);
+    char WriteChar   (char);
     // Read a char (with timeout)
-    char    ReadChar    (char *pByte,const int TimeOut_ms=NULL);
+    char ReadChar    (char *pByte,const int TimeOut_ms=NULL);
     // Write a string
-    char    WriteString (const char *String);
+    char WriteString (const char *String);
     // Read a string (with timeout)
-    int     ReadString  (   char *String,
+    int  ReadString  (   char *String,
                             char FinalChar,
                             unsigned int MaxNbBytes,
                             const unsigned int TimeOut_ms=NULL);
 
     // Write an array of bytes
-    char    Write       (const void *Buffer, const unsigned int NbBytes);
+    char Write       (const void *Buffer, const unsigned int NbBytes);
     // Read an array of byte (with timeout)
-    int     Read        (void *Buffer,unsigned int MaxNbBytes,const unsigned int TimeOut_ms=NULL);
+    int  Read        (void *Buffer,unsigned int MaxNbBytes,const unsigned int TimeOut_ms=NULL);
 
     // Empty the received buffer
-    void    FlushReceiver();
+    void FlushReceiver();
 
     // Return the number of bytes in the received buffer
-    int     Peek();
+    int  Peek();
     int endpoint();
     int available();
 
 private:
     // Read a string (no timeout)
-    int     ReadStringNoTimeOut  (char *String,char FinalChar,unsigned int MaxNbBytes);
+    int  ReadStringNoTimeOut  (char *String,char FinalChar,unsigned int MaxNbBytes);
 
-    int             fd;
+    int  fd;
 
 };
 

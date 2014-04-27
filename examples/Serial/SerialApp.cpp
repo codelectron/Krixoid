@@ -12,7 +12,14 @@ char buffer[100];
 Serial serial;
 void setup()
 {
-  serial.Open("/dev/ttyACM0",9600);
+  int ret;
+  ret = serial.Open("/dev/ttyACM0",9600);
+  if(ret < 0)
+  { 
+	printf("Unable to open the serial device\n");
+	exit(1);
+
+  }
   
 }
 

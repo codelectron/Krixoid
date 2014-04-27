@@ -73,7 +73,7 @@ Serial::~Serial()
      \return -5 error while writing port parameters
      \return -6 error while writing timeout parameters
   */
-char Serial::Open(const char *Device,const unsigned int Bauds)
+int Serial::Open(const char *Device,const unsigned int Bauds)
 {
     struct termios options;                                             // Structure with the device's options
 
