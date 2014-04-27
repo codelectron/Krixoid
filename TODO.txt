@@ -1,0 +1,9 @@
+Integrate WiringPI
+Add Pthread support
+Add Select support
+Add File IO
+Add TCP support
+Add Timer 
+Add Libevent
+Add Twitter and other social media
+
