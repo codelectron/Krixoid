@@ -3,10 +3,10 @@ FLAGS   =
 TARGET  = libkrixoid.so.0.1
 TARGETNAME = libkrixoid.so
 CFLAGS     = -fPIC  -shared -Wl,-soname,$(TARGETNAME) -lrt 
-SOURCES = Serial.cpp Timer.cpp Krixoid.cpp PThread.cpp Select.cpp TCPClient.cpp TCPServer.cpp
-HEADERS = Serial.h Timer.h Krixoid.h PThread.h Select.h TCPClient.h TCPServer.h 
-OBJECTS = Serial.o Timer.o Krixoid.o PThread.o Select.o TCPClient.o TCPServer.o
-
+SOURCES = Serial.cpp Timer.cpp Krixoid.cpp PThread.cpp Select.cpp TCPClient.cpp TCPServer.cpp # Twitter.cpp tweet.cpp utils.cpp 
+HEADERS = Serial.h Timer.h Krixoid.h PThread.h Select.h TCPClient.h TCPServer.h #  Twitter.h tweet.h utils.h
+OBJECTS = Serial.o Timer.o Krixoid.o PThread.o Select.o TCPClient.o TCPServer.o # Twitter.o tweet.o utils.o
+#Disabled Twitter since it compiles only with Gcc 4.7 due to usage of gnuextension in C and support for C++ in 4.7 enable by removing the '#'
 
 VERSION = 0.1
 DESTDIR=/usr
@@ -32,6 +32,7 @@ install:
 	@install -m 0644 TCPClient.h $(DESTDIR)$(PREFIX)/include	
 	@install -m 0644 TCPServer.h $(DESTDIR)$(PREFIX)/include	
 	@install -m 0644 Select.h $(DESTDIR)$(PREFIX)/include	
+	@install -m 0644 Twitter.h $(DESTDIR)$(PREFIX)/include	
 	@install -m 0755 $(TARGET) $(DESTDIR)$(PREFIX)/lib/$(TARGET)
 	@ln -sf $(DESTDIR)$(PREFIX)/lib/$(TARGET) $(DESTDIR)$(PREFIX)/lib/$(TARGETNAME)
 	@ldconfig
