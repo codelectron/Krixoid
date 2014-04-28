@@ -68,7 +68,7 @@ int TCPClient::endpoint()
 int TCPClient::available(void)
 {
         int count;
-        ioctl(sock_fd, FIONREAD, &count);
+        ioctl(new_socket, FIONREAD, &count);
         return count;
 }
 
