@@ -3,9 +3,9 @@ FLAGS   =
 TARGET  = libkrixoid.so.0.1
 TARGETNAME = libkrixoid.so
 CFLAGS     = -fPIC  -shared -Wl,-soname,$(TARGETNAME) -lrt 
-SOURCES = Serial.cpp Timer.cpp Krixoid.cpp PThread.cpp
-HEADERS = Serial.h Timer.h Krixoid.h PThread.h 
-OBJECTS = Serial.o Timer.o Krixoid.o PThread.o
+SOURCES = Serial.cpp Timer.cpp Krixoid.cpp PThread.cpp Select.cpp TCPClient.cpp
+HEADERS = Serial.h Timer.h Krixoid.h PThread.h Select.h TCPClient.h  
+OBJECTS = Serial.o Timer.o Krixoid.o PThread.o Select.o TCPClient.o
 
 
 VERSION = 0.1
@@ -29,6 +29,8 @@ install:
 	@install -m 0644 Krixoid.h $(DESTDIR)$(PREFIX)/include	
 	@install -m 0644 Timer.h $(DESTDIR)$(PREFIX)/include	
 	@install -m 0644 PThread.h $(DESTDIR)$(PREFIX)/include	
+	@install -m 0644 TCPClient.h $(DESTDIR)$(PREFIX)/include	
+	@install -m 0644 Select.h $(DESTDIR)$(PREFIX)/include	
 	@install -m 0755 $(TARGET) $(DESTDIR)$(PREFIX)/lib/$(TARGET)
 	@ln -sf $(DESTDIR)$(PREFIX)/lib/$(TARGET) $(DESTDIR)$(PREFIX)/lib/$(TARGETNAME)
 	@ldconfig
